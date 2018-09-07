@@ -37,7 +37,15 @@ gulp.task('scripts', function(){
     console.log('Starting scripts Task');
 
     return gulp.src('public/scripts/*.js')
+        .pipe(plumber(function(err){
+            console.log('Styles Task Error');
+            console.log(err);
+            this.emit('end');
+        }))
+        .pipe(sourcemaps.init())
         .pipe(uglify())
+        .pipe(concat('scripts.js'))
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest('public/dist'))
         .pipe(livereload());
 });
