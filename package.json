@@ -10,6 +10,10 @@
   "description": "",
   "devDependencies": {
     "gulp": "^3.9.1",
+    "gulp-livereload": "^4.0.0",
     "gulp-uglify": "^3.0.1"
+  },
+  "dependencies": {
+    "static-server": "^2.2.1"
   }
 }

@@ -1,6 +1,9 @@
 var gulp = require('gulp')
 var uglify = require('gulp-uglify')
 
+// File Paths
+var SCRIPTS_PATH = 'public/scripts/**/*.js'
+
 // Styles
 gulp.task('styles', function(){
     console.log('Starting styles tasks');
@@ -24,3 +27,11 @@ gulp.task('images', function(){
 gulp.task('default', function(){
     console.log('Starting Default Task')
 });
+
+// Watch
+gulp.task('watch', function(){
+    console.log('Starting watch Task');
+    require('./server.js');
+    gulp.watch(SCRIPTS_PATH ,['scripts']);
+});
+
